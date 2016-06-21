@@ -1,0 +1,12 @@
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.pdb
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+d:\documents\visual studio 2013\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.csprojResolveAssemblyReference.cache
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\bin\Debug\Asciigame.exe.config
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\bin\Debug\Asciigame.exe
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\bin\Debug\Asciigame.pdb
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\obj\Debug\Asciigame.exe
+D:\Dropbox\ASCII games\ConsoleApplication3\ConsoleApplication3\obj\Debug\Asciigame.pdb

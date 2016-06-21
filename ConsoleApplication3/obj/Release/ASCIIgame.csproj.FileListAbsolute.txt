@@ -1,0 +1,23 @@
+D:\Dropbox\ASCII games\ASCIIgame\ConsoleApplication3\bin\Release\Asciigame.exe.config
+D:\Dropbox\ASCII games\ASCIIgame\ConsoleApplication3\bin\Release\Asciigame.exe
+D:\Dropbox\ASCII games\ASCIIgame\ConsoleApplication3\bin\Release\Asciigame.pdb
+D:\Dropbox\ASCII games\ASCIIgame\ConsoleApplication3\obj\Release\Asciigame.exe
+D:\Dropbox\ASCII games\ASCIIgame\ConsoleApplication3\obj\Release\Asciigame.pdb
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.exe.config
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.exe
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.pdb
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.exe
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.pdb
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Asciigame.Properties.Resources.resources
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\ASCIIgame.csproj.GenerateResource.Cache
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\a.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\b.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\c.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\ch.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\d.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\text\e.txt
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.exe.manifest
+D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.application
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\ASCIIgame.csprojResolveAssemblyReference.cache
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.exe.manifest
+D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.application
