@@ -106,7 +106,7 @@ namespace Asciigame
             if (sortedDict.Count == 0)
             {
                 Console.SetCursorPosition(left, bottom - 1);
-                Console.Write("No errors!");
+                Console.Write("No typos yet!");
             }
         }
     }

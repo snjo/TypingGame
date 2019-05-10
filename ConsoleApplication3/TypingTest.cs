@@ -11,7 +11,7 @@ namespace Asciigame
 {
     class TypingTest : GameMode
     {
-        public string text;
+        public string text = "No text loaded, press ESC ";
         public textError[] errorArray;
         public int selectedTextNumber = 0;
         private List<string> textLines;
@@ -413,9 +413,10 @@ namespace Asciigame
         {
             Console.SetCursorPosition(0, 0);
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("WPM: " + GetWordsPerMinute() + ", Chars written: " + GetCharactersWritten() + "               ");            
+            Console.Write("WPM: " + GetWordsPerMinute() + ", Chars written: " + GetCharactersWritten() + "           ");            
             Console.Write("Score: " + GetScore());
             Console.Write("  " + GetStarRating());
+            Console.Write(" Menu: ESC");
         }
 
         private string GetStarRating()
