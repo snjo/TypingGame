@@ -73,7 +73,8 @@ namespace Asciigame
             
             Console.Clear();
             Console.SetCursorPosition(0, paddingTop);
-            loadText(selectedTextNumber);            
+            //loadText(selectedTextNumber);    
+            errorArray = new textError[text.Length];
             formatText();
             displayText();
             //Console.ReadKey(false);
@@ -114,7 +115,7 @@ namespace Asciigame
             }
         }
 
-        private void listTextsInVariables()
+        /*private void listTextsInVariables()
         {
             for (int i = 0; i < 100; i++)
             {
@@ -123,7 +124,7 @@ namespace Asciigame
                     break;
                 Console.WriteLine(i + ": " + previewText(newText) + "...");
             }
-        }
+        }*/
 
         private string previewText(string longText)
         {
@@ -178,8 +179,8 @@ namespace Asciigame
             updateStatusText();
             if (exitGameMode) return;
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            char key = keyInfo.KeyChar;
-            
+            char key = keyInfo.KeyChar;            
+
             char expectedKey = getExpectedKey(currentCharPos);            
             if (key == expectedKey)
             {
@@ -249,6 +250,7 @@ namespace Asciigame
 
         private void endOfTextUpdate()
         {
+            Debug.WriteLine("At the end of the text");
             stopClock();
             highScore.updateScore(currentTextName, GetScore());
             Console.SetCursorPosition(0, 10);
@@ -259,8 +261,8 @@ namespace Asciigame
         private bool atEndOfText
         {
             get
-            {
-                return (currentLinePos == textLines.Count - 1 && currentCharPos == textLines[currentLinePos].Length - 1);
+            {                
+                return (currentLinePos == textLines.Count - 1 && currentCharPos == textLines[currentLinePos].Length - 1);                
             }
         }
 
@@ -303,11 +305,17 @@ namespace Asciigame
 
         private char getExpectedKey(int position)
         {
+            Debug.WriteLine("getExpectedKey(" + position + "), currentLinePos: " + currentLinePos + ", textLines: "+ textLines.Count);
+            for (int i = 0; i < textLines.Count; i++)
+            {
+                Debug.WriteLine("TextLines["+i+"]: "  + textLines[i]);
+            }
+
             char expectedKey = textLines[currentLinePos].Substring(position, 1).ToCharArray()[0];
             return expectedKey;
         }
 
-        private string loadText(int textNumber) // make sure the text has a trailing space
+        /*private string loadText(int textNumber) // make sure the text has a trailing space
         {
             switch (textNumber)
             {
@@ -315,31 +323,31 @@ namespace Asciigame
                     //got text from file
                     break;
                 case 0:
-                    text = "A typewriter is a mechanical or electromechanical machine for writing in characters similar to those produced by printer's movable type by means of keyboard-operated types striking a ribbon to transfer ink. ";
+                    text = "t1 ";
                     break;
                 case 1:
-                    text = "Fare for vådeskudd. Det at politiet tar ladegrep når de skal gå inn i en skarp situasjon og dermed har et skuddklart våpen, er jo helt greit. Men at politiet skal gå rundt med skuddklare våpen i Oslos og Bergens gater i påvente av at noe dramatisk skal skje, er å gå altfor langt. Til det er faren for vådeskudd og uheldige hendelser altfor høy, sier Berg-Knutsen. ";
+                    text = "t2 ";
                     break;
                 case 2:
-                    text = "Ber politiet endre praksis. Nå viser det seg i tillegg at en politimann i april i år avfyrte et vådeskudd inne på politistasjonen i Kristiansund. Det er VG som melder dette tirsdag kveld. Hendelsen er under etterforskning av spesialenheten for politisaker. ";
+                    text = "t3 ";
                     break;
                 case 3:
-                    text = "\"The Brink\" er en ny HBO-komiserie som fokuserer på en geopolitisk krise og dens effekt på tre uforenelige og desperate menn: Walter Larson, USAs utenriksminister, Alex Talbott, en diplomat stasjonert i Islamabad, og Zeke \"Z-Pak\" Tilson, en jagerpilot med en lukrativ sidegeskjeft hvor han selger reseptbelagte medisiner. Denne episke mørke komiserien begynner med at det er fare for kupp i Pakistan. En kjeltring av en general tar kontroll over landet og atomvåpnene der, noe som gjør at verden må stole på disse tre utypiske amerikanske heltene. Fra de turbulente gatene i Midtøsten til Det Hvite Hus og et krigsskip i Rødehavet: \"The Brink\" tar oss med på en vill reise gjennom mange tidssoner for å vise oss hvordan svakhetene, egoene og rivaliseringen til politiske ledere kan føre oss til randen av en ny verdenskrig. ";
+                    text = "t4 ";
                     break;
                 default:
-                    text = "No text loaded ";
+                    text = "t5 ";
                     break;
             }
             errorArray = new textError[text.Length];
             return text;
-        }
+        }*/
 
         private void formatText()
         {
             Debug.WriteLine("Formatting string: " + text);
             textLines = new List<string>();
             int bufferWidth = 62;//game.bufferSize.x;
-            for (int i = 0; i < text.Length; )
+            for (int i = 0; i < text.Length;)
             {
                 string finalString = string.Empty;
                 int adjustedWidth = bufferWidth;
@@ -351,10 +359,10 @@ namespace Asciigame
 
                 for (int j = line.Length - 1; j >= 0; j--)
                 {
-                    Debug.WriteLine("i = " + i + ", j = " + j);
+                    Debug.WriteLine("i = " + i + ", j = " + j + " = " + line[j]);
                     if (line[j] == ' ' || line[j] == ',' || line[j] == '.' || line[j] == '-')
                     {
-                        adjustedWidth = j+1;
+                        adjustedWidth = j + 1;
                         finalString = new string(line).Substring(0, adjustedWidth); ;
                         break;
                     }
@@ -364,7 +372,15 @@ namespace Asciigame
                 //int width = bufferWidth;
                 //if (i + adjustedWidth > text.Length)
                 //    adjustedWidth = text.Length % adjustedWidth;
-                textLines.Add(finalString);
+
+                if (finalString.Length > 0) {
+                    textLines.Add(finalString);
+                    Debug.WriteLine("formatText(): added line " + i + ": " + finalString);
+                }
+                else
+                {
+                    Debug.WriteLine("formatText(): Skipped adding empty line at " + i);
+                }
             }
         }
 
@@ -426,7 +442,7 @@ namespace Asciigame
                 else
                     baseScore -= (int)errorArray[i] - 1;
             }
-            Debug.WriteLine("bs2: " + baseScore);
+            //Debug.WriteLine("bs2: " + baseScore);
             baseScore = (baseScore / 2f) / errorArray.Length;
             Debug.WriteLine("Basescore = " + baseScore);
             return (int)(baseScore * GetWordsPerMinute() * 100);
@@ -434,7 +450,7 @@ namespace Asciigame
 
         private int GetWordsPerMinute()
         {
-            Debug.WriteLine(clock + " / " + secondsSinceStart);
+            //Debug.WriteLine("Clock: " + clock + " / " + secondsSinceStart);
             if (secondsSinceStart > 1)
                 return (int)((GetCharactersWritten() / 5) / (secondsSinceStart / 60d));
             else return 0;

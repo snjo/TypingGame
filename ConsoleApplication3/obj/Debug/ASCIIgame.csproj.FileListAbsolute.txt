@@ -47,3 +47,22 @@ D:\Github\ASCII-game\ConsoleApplication3\obj\Debug\ASCIIgame.csproj.GenerateReso
 D:\Github\ASCII-game\ConsoleApplication3\obj\Debug\Touch typing.exe.manifest
 D:\Github\ASCII-game\ConsoleApplication3\obj\Debug\Touch typing.application
 D:\Github\ASCII-game\ConsoleApplication3\bin\Debug\text\f.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\ASCIIgame.csprojResolveAssemblyReference.cache
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Asciigame.Properties.Resources.resources
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\ASCIIgame.csproj.GenerateResource.Cache
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.pdb
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\a.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\b.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\c.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\ch.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\d.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\e.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\text\f.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe.config
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe.manifest
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.application
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.pdb
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe.manifest
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.application

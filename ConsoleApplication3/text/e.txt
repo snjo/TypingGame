@@ -1,1 +1,5 @@
-"The Brink" er en ny HBO-komiserie. 
+Pascal er basert på programmeringsspråket Algol 60 og ble navngitt for å ære den franske matematikeren og filosofen Blaise Pascal. Etter Pascal utviklet Wirth Modula-2 og Oberon, språk som ligner Pascal.
+
+Til å begynne med var Pascal til stor grad påtenkt som et pedagogisk utformet språk for å lære studenter strukturert programmering. Generasjoner av laveregradsstudenter har fått bryne seg på Pascal. Varianter av Pascal har ofte blitt brukt til alt fra forskningsprosjekter til videospill og innebygde systemer. Nyere Pascal-kompilatorer eksisterer og brukes vidt og bredt.
+
+Pascal var det primære høynivåspråket for utviklingen av Apples datamaskin Lisa, og de første årene Apple utviklet Mac. Deler av det opprinnelige operativsystemet for Macintosh ble oversatt for hånd til Motorola 68000 maskinkode fra kilden i Pascal. Det populære settesystemet TeX av Donald Knuth var skrevet i WEB, et litterært programmeringssystem basert på DEC PDP-10 Pascal. Programmet Total Commander var skrevet i Delphi, dvs. Object Pascal.

@@ -102,6 +102,12 @@ namespace Asciigame
                 }
                 xPosition++;
             }
+
+            if (sortedDict.Count == 0)
+            {
+                Console.SetCursorPosition(left, bottom - 1);
+                Console.Write("No errors!");
+            }
         }
     }
 }

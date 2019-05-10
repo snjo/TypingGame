@@ -21,3 +21,22 @@ D:\Github\ASCII-game\ConsoleApplication3\bin\Release\Touch typing.application
 D:\Github\ASCII-game\ConsoleApplication3\obj\Release\ASCIIgame.csprojResolveAssemblyReference.cache
 D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.exe.manifest
 D:\Github\ASCII-game\ConsoleApplication3\obj\Release\Touch typing.application
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\a.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\b.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\c.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\ch.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\d.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\e.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\text\f.txt
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\Touch typing.exe.config
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\Touch typing.exe.manifest
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\Touch typing.application
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\Touch typing.exe
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Release\Touch typing.pdb
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\ASCIIgame.csprojResolveAssemblyReference.cache
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\Asciigame.Properties.Resources.resources
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\ASCIIgame.csproj.GenerateResource.Cache
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\Touch typing.exe.manifest
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\Touch typing.application
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\Touch typing.exe
+C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Release\Touch typing.pdb

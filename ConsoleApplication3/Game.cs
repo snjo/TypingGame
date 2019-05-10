@@ -160,7 +160,7 @@ namespace Asciigame
             }
             else
             {
-                Debug.WriteLine("adding " + key.ToString());
+                //Debug.WriteLine("adding " + key.ToString());
                 OldKeyState.Add(key, false);
                 return IsKeyPressed(key);
             }

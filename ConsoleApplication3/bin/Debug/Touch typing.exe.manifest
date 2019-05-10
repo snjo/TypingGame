@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Touch typing.exe" size="24064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Touch typing.exe" size="20480">
       <assemblyIdentity name="Touch typing" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vzt0Bw2YQLvVRi0MJR3CRyBVf/jbzSyYn88lppvt5M8=</dsig:DigestValue>
+        <dsig:DigestValue>UDMInIKdRdne4LalDgXFzt2t1hRpkRFucoOzhzbS5E4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="text\a.txt" size="813">
+  <file name="text\a.txt" size="574">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9yuzuYSaRpPRiydFq5DXMHSfeuyUlFwGmaZ5vqbdtlc=</dsig:DigestValue>
+      <dsig:DigestValue>cyE0jIiUZ4RHtUyIj9vE5Lglv00esM+yeHQoaiPqn9I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="text\b.txt" size="417">
@@ -89,22 +89,22 @@
       <dsig:DigestValue>oKkgpf2qjKKAjMr1+/jLX/C9QXA1ciqVbpuRDRrxEfQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="text\d.txt" size="376">
+  <file name="text\d.txt" size="952">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6bPE4AUdZQnsZC6KRsksy6Pm9JjSGDhY21aBaC49+jk=</dsig:DigestValue>
+      <dsig:DigestValue>EHXNHq2eROGwJ1YOceIJ/DpBWpyl/KB90yV6viz4zZA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="text\e.txt" size="36">
+  <file name="text\e.txt" size="1052">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/NVMomBnFWFt3Egyw3bf6BuXLW2FQahNtR3xhXMU6As=</dsig:DigestValue>
+      <dsig:DigestValue>wbfyEXnCXbEmErjTVyfqNeLTnIbX9ro0tiD6wO1Fat8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="text\f.txt" size="583">
