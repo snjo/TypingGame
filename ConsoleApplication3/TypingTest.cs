@@ -34,6 +34,8 @@ namespace Asciigame
 
         private TextScore textScore;
 
+        private char enterKeyCharacter = '\u2190';
+
         public enum textError
         {
             Blank,
@@ -159,6 +161,7 @@ namespace Asciigame
             {
                 Debug.WriteLine("File exists");
                 text = File.ReadAllText(filepath);
+                Debug.WriteLine("Read from file: " + text);
                 if (text.Length < 1) selectedTextNumber = 0;
                 selectedTextNumber = -1;
                 currentTextName = userInput;
@@ -181,9 +184,11 @@ namespace Asciigame
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             char key = keyInfo.KeyChar;            
 
-            char expectedKey = getExpectedKey(currentCharPos);            
-            if (key == expectedKey)
+            char expectedKey = getExpectedKey(currentCharPos);
+            //bool enterPressedOK = key == (char)13 && (getExpectedKey(currentCharPos) == enterKeyCharacter);
+            if (key == expectedKey)// || enterPressedOK)
             {
+                Debug.WriteLine("correct press: " + (int)key + " / " + key + ".");
                 if (atEndOfText)
                 {
                     endOfTextUpdate();
@@ -208,7 +213,15 @@ namespace Asciigame
                 {
                     Console.BackgroundColor = ConsoleColor.DarkYellow;
                 }
-                Console.Write(key);
+
+                if (key == (char)13) //enter
+                {
+                    Console.Write(enterKeyCharacter);
+                }
+                else
+                {
+                    Console.Write(key);
+                }
 
                 
 
@@ -219,14 +232,23 @@ namespace Asciigame
                     startClock();
                 }
             }
-            else if (key == (char)8)
+            else if (key == (char)8) // backspace
             {
                 typeHeadBack();
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
-                Console.Write(getExpectedKey(currentCharPos));                    
+
+                if (getExpectedKey(currentCharPos) == (char)13) //enter
+                {
+                    Console.Write(enterKeyCharacter);
+                }
+                else
+                {
+                    Console.Write(getExpectedKey(currentCharPos));
+                }
+                                  
             }
-            else if (key == (char)27)
+            else if (key == (char)27) //escape
             {
                 stopClock();
                 Start(game);
@@ -243,7 +265,17 @@ namespace Asciigame
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 textScore.addTypoCharacter(expectedKey);
                 Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
-                Console.Write(expectedKey);
+
+                if (expectedKey == (char)13) //enter
+                {
+                    Console.Write(enterKeyCharacter);
+                }
+                else
+                {
+                    Console.Write(expectedKey);
+                }
+
+                //Console.Write(expectedKey);
                 typeHeadForward();
             }
         }
@@ -299,19 +331,23 @@ namespace Asciigame
                 else
                 {
                     currentCharPos = 0;
+                    currentTextPosition = 0;//prevent exception when backspacing beyond start
                 }
             }
         }
 
         private char getExpectedKey(int position)
         {
-            Debug.WriteLine("getExpectedKey(" + position + "), currentLinePos: " + currentLinePos + ", textLines: "+ textLines.Count);
+            //Debug.WriteLine("getExpectedKey(" + position + "), currentLinePos: " + currentLinePos + ", textLines: "+ textLines.Count);
             for (int i = 0; i < textLines.Count; i++)
             {
-                Debug.WriteLine("TextLines["+i+"]: "  + textLines[i]);
+               //Debug.WriteLine("TextLines["+i+"]: "  + textLines[i]);
             }
 
             char expectedKey = textLines[currentLinePos].Substring(position, 1).ToCharArray()[0];
+            Debug.Write("expected key: " + (int)expectedKey);
+            if (expectedKey == enterKeyCharacter) expectedKey = (char)13;
+            Debug.WriteLine(", updated to: " + (int)expectedKey);
             return expectedKey;
         }
 
@@ -344,7 +380,11 @@ namespace Asciigame
 
         private void formatText()
         {
-            Debug.WriteLine("Formatting string: " + text);
+            Debug.WriteLine("-------------\nFormatting string:\n" + text + "\n----------------");
+
+            text = text.Replace((char)13, enterKeyCharacter);
+            text = text.Replace(((char)10).ToString(), String.Empty);
+
             textLines = new List<string>();
             int bufferWidth = 62;//game.bufferSize.x;
             for (int i = 0; i < text.Length;)
@@ -353,20 +393,56 @@ namespace Asciigame
                 int adjustedWidth = bufferWidth;
                 char[] line;
                 if (text.Length > i + bufferWidth)
-                    line = text.Substring(i, bufferWidth).ToCharArray();
-                else
-                    line = text.Substring(i).ToCharArray();
-
-                for (int j = line.Length - 1; j >= 0; j--)
                 {
-                    Debug.WriteLine("i = " + i + ", j = " + j + " = " + line[j]);
-                    if (line[j] == ' ' || line[j] == ',' || line[j] == '.' || line[j] == '-')
+                    line = text.Substring(i, bufferWidth).ToCharArray();
+                }
+                else
+                {
+                    line = text.Substring(i).ToCharArray();                                        
+                }
+
+                //test, look for line change
+                
+                char finalChar = line[line.Length - 1];
+                //int lineLengthTrimmed = line.Length;
+                //int trimAmount = 0;
+                
+                for (int cn = 0; cn < line.Length; cn++)
+                {
+                    if ((int)line[cn] == enterKeyCharacter)
                     {
-                        adjustedWidth = j + 1;
-                        finalString = new string(line).Substring(0, adjustedWidth); ;
-                        break;
+                        string lineTrimmed = new string(line);
+                        Debug.WriteLine("trimming string " + lineTrimmed);
+                        lineTrimmed = lineTrimmed.Substring(0, cn+1);
+                        Debug.WriteLine("trimmed string " + lineTrimmed);
+                        line = lineTrimmed.ToCharArray();
                     }
                 }
+
+                //---------
+
+                if (line.Length > bufferWidth)
+                {
+                    for (int j = line.Length - 1; j >= 0; j--)
+                    {
+                        Debug.WriteLine("i = " + i + ", j = " + j + " = " + line[j]);
+                        if (line[j] == ' ' || line[j] == ',' || line[j] == '.' || line[j] == '-' || line[j] == enterKeyCharacter)
+                        {
+                            adjustedWidth = j + 1;
+                            finalString = new string(line).Substring(0, adjustedWidth);
+                            Debug.WriteLine("Breaking line at pos " + j + ": " + (int)line[j]);
+                            break;
+                        }
+                    }
+                    Debug.WriteLine("long line");
+                }
+                else
+                {
+                    finalString = new string(line);
+                    adjustedWidth = finalString.Length;
+                    Debug.WriteLine("short line");
+                }
+
                 if (adjustedWidth < 1) adjustedWidth = bufferWidth;
                 i += adjustedWidth;
                 //int width = bufferWidth;
@@ -375,7 +451,9 @@ namespace Asciigame
 
                 if (finalString.Length > 0) {
                     textLines.Add(finalString);
-                    Debug.WriteLine("formatText(): added line " + i + ": " + finalString);
+                    Debug.WriteLine("formatText(): added line " + i + ": " + finalString );
+                    
+                   
                 }
                 else
                 {
@@ -435,7 +513,7 @@ namespace Asciigame
         private int GetScore()
         {
             float baseScore = errorArray.Length * 2;
-            Debug.WriteLine("bs1: " + baseScore);
+            //Debug.WriteLine("bs1: " + baseScore);
             for (int i = 0; i < errorArray.Length; i++)
             {
                 if (errorArray[i] == textError.Blank)
@@ -445,7 +523,7 @@ namespace Asciigame
             }
             //Debug.WriteLine("bs2: " + baseScore);
             baseScore = (baseScore / 2f) / errorArray.Length;
-            Debug.WriteLine("Basescore = " + baseScore);
+            //Debug.WriteLine("Basescore = " + baseScore);
             return (int)(baseScore * GetWordsPerMinute() * 100);
         }
 

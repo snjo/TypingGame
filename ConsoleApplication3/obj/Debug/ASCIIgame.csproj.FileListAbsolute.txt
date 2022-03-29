@@ -66,3 +66,22 @@ C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typ
 C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.pdb
 C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe.manifest
 C:\Users\aao\Documents\GitHub\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.application
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\a.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\b.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\c.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\ch.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\d.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\e.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\f.txt
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe.config
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe.manifest
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.application
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.exe
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\Touch typing.pdb
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\ASCIIgame.csprojAssemblyReference.cache
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Asciigame.Properties.Resources.resources
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\ASCIIgame.csproj.GenerateResource.cache
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe.manifest
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.application
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe
+E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.pdb
