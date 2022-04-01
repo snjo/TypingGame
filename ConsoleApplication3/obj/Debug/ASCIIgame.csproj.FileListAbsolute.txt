@@ -85,3 +85,4 @@ E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe.manifest
 E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.application
 E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.exe
 E:\Github\TypingGame\ConsoleApplication3\obj\Debug\Touch typing.pdb
+E:\Github\TypingGame\ConsoleApplication3\bin\Debug\text\g.txt

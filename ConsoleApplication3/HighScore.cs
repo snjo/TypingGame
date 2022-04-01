@@ -46,7 +46,8 @@ namespace Asciigame
         {
             if (File.Exists(TypingTest.path + "\\scores.txt"))
             {
-                Debug.WriteLine("scores file exists");
+                Debug.WriteLine("scores file exists.");
+                //save/load NOT IMPLEMENTED                
                 return true;
             }
             else

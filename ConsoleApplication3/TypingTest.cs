@@ -159,9 +159,9 @@ namespace Asciigame
             string filepath = path + "\\text\\" + userInput + ".txt";
             if (File.Exists(filepath))
             {
-                Debug.WriteLine("File exists");
+                Debug.WriteLine("File exists: " + filepath);
                 text = File.ReadAllText(filepath);
-                Debug.WriteLine("Read from file: " + text);
+                //Debug.WriteLine("Read from file: " + text);
                 if (text.Length < 1) selectedTextNumber = 0;
                 selectedTextNumber = -1;
                 currentTextName = userInput;
@@ -388,7 +388,7 @@ namespace Asciigame
             textLines = new List<string>();
             int bufferWidth = 62;//game.bufferSize.x;
             for (int i = 0; i < text.Length;)
-            {
+            {                
                 string finalString = string.Empty;
                 int adjustedWidth = bufferWidth;
                 char[] line;
@@ -401,8 +401,10 @@ namespace Asciigame
                     line = text.Substring(i).ToCharArray();                                        
                 }
 
+                //Debug.WriteLine("processing string: " + new string(line));
+
                 //test, look for line change
-                
+
                 char finalChar = line[line.Length - 1];
                 //int lineLengthTrimmed = line.Length;
                 //int trimAmount = 0;
@@ -412,35 +414,35 @@ namespace Asciigame
                     if ((int)line[cn] == enterKeyCharacter)
                     {
                         string lineTrimmed = new string(line);
-                        Debug.WriteLine("trimming string " + lineTrimmed);
+                        //Debug.WriteLine("trimming string " + lineTrimmed);
                         lineTrimmed = lineTrimmed.Substring(0, cn+1);
-                        Debug.WriteLine("trimmed string " + lineTrimmed);
+                        //Debug.WriteLine("trimmed string " + lineTrimmed);
                         line = lineTrimmed.ToCharArray();
                     }
                 }
 
                 //---------
 
-                if (line.Length > bufferWidth)
+                if (line.Length >= bufferWidth)
                 {
                     for (int j = line.Length - 1; j >= 0; j--)
                     {
-                        Debug.WriteLine("i = " + i + ", j = " + j + " = " + line[j]);
+                        //Debug.WriteLine("i = " + i + ", j = " + j + " = " + line[j]);
                         if (line[j] == ' ' || line[j] == ',' || line[j] == '.' || line[j] == '-' || line[j] == enterKeyCharacter)
                         {
                             adjustedWidth = j + 1;
                             finalString = new string(line).Substring(0, adjustedWidth);
-                            Debug.WriteLine("Breaking line at pos " + j + ": " + (int)line[j]);
+                            //Debug.WriteLine("Breaking line at pos " + j + ": " + (int)line[j]);
                             break;
                         }
                     }
-                    Debug.WriteLine("long line");
+                    //Debug.WriteLine("long line");
                 }
                 else
                 {
                     finalString = new string(line);
                     adjustedWidth = finalString.Length;
-                    Debug.WriteLine("short line");
+                    //Debug.WriteLine("short line: " + line.Length + " of " + bufferWidth);
                 }
 
                 if (adjustedWidth < 1) adjustedWidth = bufferWidth;
@@ -451,13 +453,13 @@ namespace Asciigame
 
                 if (finalString.Length > 0) {
                     textLines.Add(finalString);
-                    Debug.WriteLine("formatText(): added line " + i + ": " + finalString );
+                    //Debug.WriteLine("formatText(): added line " + i + ": " + finalString );
                     
                    
                 }
                 else
                 {
-                    Debug.WriteLine("formatText(): Skipped adding empty line at " + i);
+                    //Debug.WriteLine("formatText(): Skipped adding empty line at " + i);
                 }
             }
         }

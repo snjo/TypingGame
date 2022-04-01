@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Touch typing.exe" size="20992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Touch typing.exe" size="20480">
       <assemblyIdentity name="Touch typing" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>B2W0TdDx+PL4kpa4KZeZ6HIEFNEDTuMlRu+IsFld41M=</dsig:DigestValue>
+        <dsig:DigestValue>DQRfgsshCy484IY8BbH2EYb+N0dQQhvRfzplHWaDu8s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -80,22 +80,22 @@
       <dsig:DigestValue>M5qOJx0WaTJvYG3sk9msCvQvP27jcFNW4S9JzkxQ8T8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="text\ch.txt" size="76">
+  <file name="text\ch.txt" size="69">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oKkgpf2qjKKAjMr1+/jLX/C9QXA1ciqVbpuRDRrxEfQ=</dsig:DigestValue>
+      <dsig:DigestValue>OvFTTN0ddRLsbpPcQdsb7Tk4HmMsLemj9QC7W5qdGAA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="text\d.txt" size="952">
+  <file name="text\d.txt" size="945">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EHXNHq2eROGwJ1YOceIJ/DpBWpyl/KB90yV6viz4zZA=</dsig:DigestValue>
+      <dsig:DigestValue>oMQLrOQKDnc+7JnRQTXcmpZsZxgmvMS6bvg7djlsFm8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="text\e.txt" size="1052">
@@ -114,6 +114,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>TFSdzvZjTWfhIcqIIke14sqXbX0fdxsf1LyJG0AXclE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="text\g.txt" size="266">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oQ590QKpwEpteMlMv6lb+rtttczGqZU0vU2Hesi6/RE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Touch typing.exe.config" size="187">
