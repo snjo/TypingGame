@@ -24,6 +24,7 @@ namespace Asciigame
 
         DateTime clock = new DateTime();
         bool clockRunning = false;
+        private bool gameOver = true;
         double secondsSinceStart = 0;
 
         public static string exeLocation;
@@ -34,7 +35,11 @@ namespace Asciigame
 
         private TextScore textScore;
 
-        private char enterKeyCharacter = '\u2190';
+        private char enterKeyCharacter = '\u2190';        
+        private char heartBlackCharacter = (char)3;
+        private char smiley = (char)2;
+
+
 
         public enum textError
         {
@@ -59,6 +64,7 @@ namespace Asciigame
 
         public override void Start(Game _game)
         {
+            gameOver = false;
             base.Start(_game);
             Console.OutputEncoding = System.Text.Encoding.Unicode;            
             exeLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -165,6 +171,11 @@ namespace Asciigame
                 if (text.Length < 1) selectedTextNumber = 0;
                 selectedTextNumber = -1;
                 currentTextName = userInput;
+                //add a space at the end to allow the final character to be written (jank)
+                string finalCharacter = text.Substring(text.Length-1, 1);
+                Debug.WriteLine("Final character of text is " + "'" + finalCharacter + "'");
+                if (finalCharacter != " ")
+                    text += " ";
             }
             else
             {
@@ -176,7 +187,7 @@ namespace Asciigame
 
         public override void Update()
         {
-            base.Update();
+            base.Update();            
 
             if (clockRunning) updateClock();
             updateStatusText();
@@ -185,98 +196,110 @@ namespace Asciigame
             char key = keyInfo.KeyChar;            
 
             char expectedKey = getExpectedKey(currentCharPos);
-            //bool enterPressedOK = key == (char)13 && (getExpectedKey(currentCharPos) == enterKeyCharacter);
-            if (key == expectedKey)// || enterPressedOK)
+
+            if (!gameOver)
             {
-                Debug.WriteLine("correct press: " + (int)key + " / " + key + ".");
-                if (atEndOfText)
+                if (key == expectedKey)// || enterPressedOK)
                 {
-                    endOfTextUpdate();
-                    return;
+                    Debug.WriteLine("correct press: " + (int)key + " / " + key + ".");
+
+
+                    if (errorArray[currentTextPosition] == textError.Typo || errorArray[currentTextPosition] == textError.WasCorrected)
+                    {
+                        errorArray[currentTextPosition] = textError.WasCorrected;
+                    }
+                    else
+                    {
+                        errorArray[currentTextPosition] = textError.Correct;
+                    }
+
+                    Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
+                    if (errorArray[currentTextPosition] == textError.Correct)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    }
+
+                    if (key == (char)13) //enter
+                    {
+                        Console.Write(enterKeyCharacter);
+                    }
+                    else
+                    {
+                        Console.Write(key);
+                    }
+
+                    typeHeadForward();
+                    if (!clockRunning)
+                    {
+                        Debug.Write("Starting Clock");
+                        startClock();
+                    }
+
+                    if (atEndOfText)
+                    {
+                        endOfTextUpdate();
+                        return;
+                    }
+
                 }
-                
-                if (errorArray[currentTextPosition] == textError.Typo || errorArray[currentTextPosition] == textError.WasCorrected)
+                else if (key == (char)8) // backspace
                 {
-                    errorArray[currentTextPosition] = textError.WasCorrected;
+                    typeHeadBack();
+                    Console.BackgroundColor = defaultBackgroundColor;
+                    Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
+
+                    if (getExpectedKey(currentCharPos) == (char)13) //enter
+                    {
+                        Console.Write(enterKeyCharacter);
+                    }
+                    else
+                    {
+                        Console.Write(getExpectedKey(currentCharPos));
+                    }
+                }
+                else if (key == (char)27) //escape
+                {
+                    stopClock();
+                    Start(game);
+                    //RequestTermination();
                 }
                 else
                 {
-                    errorArray[currentTextPosition] = textError.Correct;
-                }
+                    
+                    errorArray[currentTextPosition] = textError.Typo;
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    textScore.addTypoCharacter(expectedKey);
+                    Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
 
-                Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
-                if (errorArray[currentTextPosition] == textError.Correct)
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                }
-                else
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                }
+                    if (expectedKey == (char)13) //enter
+                    {
+                        Console.Write(enterKeyCharacter);
+                    }
+                    else
+                    {
+                        Console.Write(expectedKey);
+                    }
 
-                if (key == (char)13) //enter
-                {
-                    Console.Write(enterKeyCharacter);
-                }
-                else
-                {
-                    Console.Write(key);
-                }
+                    //Console.Write(expectedKey);
+                    typeHeadForward();
 
-                
-
-                typeHeadForward();
-                if (!clockRunning)
-                {
-                    Debug.Write("Starting Clock");
-                    startClock();
+                    if (atEndOfText)
+                    {
+                        endOfTextUpdate();
+                        return;
+                    }
                 }
             }
-            else if (key == (char)8) // backspace
+            else //if gameOver
             {
-                typeHeadBack();
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
-
-                if (getExpectedKey(currentCharPos) == (char)13) //enter
-                {
-                    Console.Write(enterKeyCharacter);
+                if (key == (char)27) //escape
+                {                    
+                    Start(game);                    
                 }
-                else
-                {
-                    Console.Write(getExpectedKey(currentCharPos));
-                }
-                                  
-            }
-            else if (key == (char)27) //escape
-            {
-                stopClock();
-                Start(game);
-                //RequestTermination();
-            }
-            else
-            {
-                if (atEndOfText)
-                {
-                    endOfTextUpdate();
-                    return;
-                }
-                errorArray[currentTextPosition] = textError.Typo;
-                Console.BackgroundColor = ConsoleColor.DarkRed;
-                textScore.addTypoCharacter(expectedKey);
-                Console.SetCursorPosition(currentCharPos, currentLinePos + paddingTop);
-
-                if (expectedKey == (char)13) //enter
-                {
-                    Console.Write(enterKeyCharacter);
-                }
-                else
-                {
-                    Console.Write(expectedKey);
-                }
-
-                //Console.Write(expectedKey);
-                typeHeadForward();
             }
         }
 
@@ -286,14 +309,18 @@ namespace Asciigame
             stopClock();
             highScore.updateScore(currentTextName, GetScore());
             Console.SetCursorPosition(0, 10);
-            highScore.displayTypoCharacters(textScore.typoCharacters, 0, Console.WindowHeight, 10);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.BackgroundColor = defaultBackgroundColor;
+            highScore.displayTypoCharacters(textScore.typoCharacters, 0, Console.WindowHeight, 10);            
+            Console.ForegroundColor = ConsoleColor.White;
             highScore.addTyposToCharDictionary(textScore.typoCharacters);
+            gameOver = true;
         }
 
         private bool atEndOfText
         {
             get
-            {                
+            {
                 return (currentLinePos == textLines.Count - 1 && currentCharPos == textLines[currentLinePos].Length - 1);                
             }
         }
@@ -489,25 +516,67 @@ namespace Asciigame
             secondsSinceStart = (DateTime.Now - clock).TotalSeconds;
         }
 
+        public ConsoleColor defaultBackgroundColor = ConsoleColor.Black;
+        public ConsoleColor defaultForegroundColor = ConsoleColor.White;
+        private void setDefaultColors()
+        {
+            Console.ForegroundColor = defaultForegroundColor;
+            Console.BackgroundColor = defaultBackgroundColor;
+        }
+
         private void updateStatusText()
         {
             Console.SetCursorPosition(0, 0);
-            Console.BackgroundColor = ConsoleColor.Black;
+            setDefaultColors();
             Console.Write("WPM: " + GetWordsPerMinute() + ", Chars written: " + GetCharactersWritten() + "           ");            
             Console.Write("Score: " + GetScore());
-            Console.Write("  " + GetStarRating());
-            Console.Write(" Menu: ESC");
+            //Console.Write("  " + GetStarRating());
+            Console.Write("  ");
+            WriteStarRating();
+            Console.Write(" Menu: ESC   ");
+            setDefaultColors();
         }
 
         private string GetStarRating()
         {
             int score = GetScore();
-            string starText = "     ";
+            string starText = "     ";            
             if (score >= 1500) starText = "*    ";
             if (score >= 2000) starText = "**   ";
             if (score >= 2500) starText = "***  ";
             if (score >= 3000) starText = "**** ";
-            if (score >= 4000) starText = "*****";
+            if (score >= 4000) starText = "*****";            
+
+            return starText;
+        }
+
+        private string WriteStarRating()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.BackgroundColor = defaultBackgroundColor;
+            int score = GetScore();
+            string starText = "";
+            if (score >= 2500) starText = "*";
+            if (score >= 3000) starText = "**";
+            if (score >= 3500) starText = "***";
+            if (score >= 4000) starText = "****";
+            if (score >= 4500) starText = "*****";            
+            if (score >= 5000) starText = new string(heartBlackCharacter, 1);
+            if (score >= 5500) starText = new string(heartBlackCharacter, 2);
+            if (score >= 6000) starText = new string(heartBlackCharacter, 3);
+            if (score >= 6500) starText = new string(heartBlackCharacter, 4);
+            if (score >= 7000) starText = new string(heartBlackCharacter, 5);
+            if (score >= 7500) starText = new string(smiley, 1);
+            if (score >= 8000) starText = new string(smiley, 2);
+            if (score >= 8500) starText = new string(smiley, 3);
+            if (score >= 9000) starText = new string(smiley, 4);
+            if (score >= 9500) starText = new string(smiley, 5);
+
+            Console.Write(starText);
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            string fillstars = new string('*', 5 - starText.Length);
+            Console.Write(fillstars);
 
             return starText;
         }
